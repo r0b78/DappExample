@@ -4,9 +4,12 @@ Ejemplo practico de una base de datos distribuida , especificamente ethereum blo
 
 ## Instrucciones 
 
-1. instalar Metamask 
+1. instalar Metamask, plugin para chrome  
+
 2. abrir https://remix.ethereum.org/
+
 3. desplegar el contrato y jugar un rato
+
 4. votar en el contrato hecho en la exposicion 
 
 ## Repo de Referencia 
