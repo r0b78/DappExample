@@ -7,7 +7,7 @@ contract Election {
         string name;
         uint voteCount;
     }
-
+    
     // Store accounts that have voted
     mapping(address => bool) public voters;
     // Store Candidates
@@ -15,6 +15,7 @@ contract Election {
     mapping(uint => Candidate) public candidates;
     // Store Candidates Count
     uint public candidatesCount;
+    uint public votesCount;
 
     // voted event
     event votedEvent (
@@ -24,6 +25,8 @@ contract Election {
     function Election () public {
         addCandidate("Roman");
         addCandidate("Rober");
+        addCandidate("Juan");
+        
     }
 
     function addCandidate (string _name) private {
@@ -33,7 +36,7 @@ contract Election {
 
     function vote (uint _candidateId) public {
         // require that they haven't voted before
-        require(!voters[msg.sender]);
+        //require(!voters[msg.sender]);
 
         // require a valid candidate
         require(_candidateId > 0 && _candidateId <= candidatesCount);
@@ -43,8 +46,10 @@ contract Election {
 
         // update candidate vote Count
         candidates[_candidateId].voteCount ++;
-
+        
+        votesCount++;
         // trigger voted event
         votedEvent(_candidateId);
     }
+    
 }
